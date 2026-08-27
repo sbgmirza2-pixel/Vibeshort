@@ -151,7 +151,7 @@ export default function HeroSection() {
                   <span className="text-[10px] font-bold">Telegram</span>
                 </a>
 
-                {/* Reddit */}
+              
                 <a
                   href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareText}`}
                   target="_blank"
