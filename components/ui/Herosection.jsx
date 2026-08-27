@@ -139,7 +139,7 @@ export default function HeroSection() {
                   <span className="text-[10px] font-bold">WhatsApp</span>
                 </a>
 
-                {/* Telegram */}
+                
                 <a
                   href={`https://t.me/share/url?url=${shareUrl}&text=${shareText}`}
                   target="_blank"
