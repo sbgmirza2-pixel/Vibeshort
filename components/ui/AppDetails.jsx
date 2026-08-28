@@ -2,15 +2,18 @@ import React from 'react';
 
 export default function AppDetails() {
   const details = [
-    { label: 'App Name', value: 'VibeShort' },
-    { label: 'Package Name', value: 'com.vibeshort.visualnovel.android' },
+    { label: 'App Name', value: 'VibeShort: AI Dramas & Reels' },
     { label: 'Developer', value: 'AGILE QUADRANT MEDIA LIMITED' },
+    { label: 'Package Name', value: 'com.vibeshort.visualnovel.android' },
+    { label: 'Latest APK Version', value: '2.27.0' },
+    { label: 'Android Requirement', value: 'Android 7.0+' },
+    { label: 'File Size', value: 'About 120.5 MB' },
     { label: 'Category', value: 'Entertainment' },
-    { label: 'Content Rating', value: 'Mature 17+' },
-    { label: 'Downloads', value: '5M+' },
     { label: 'Ads', value: 'Yes' },
     { label: 'In-App Purchases', value: 'Yes' },
-    { label: 'Platform', value: 'Android' },
+    { label: 'Downloads', value: '10M+ on Google Play' },
+    { label: 'Content Rating', value: 'Mature 17+' },
+    { label: 'APK Format', value: 'XAPK for current third-party listing' },
   ];
 
   return (
@@ -42,6 +45,12 @@ export default function AppDetails() {
               </span>
             </div>
           ))}
+        </div>
+
+        {/* Extra Info Note */}
+        <div className="p-4 rounded-xl bg-white/[0.02] border border-[#B8F000]/30 text-center text-xs lg:text-sm text-gray-300">
+          <span className="text-[#B8F000] font-bold">Note: </span>
+          The current third-party listing reports VibeShort version 2.27.0 with Android 7.0+ support and a package size of about 120.5 MB. It is listed as an XAPK, so the installation process may differ from a standard APK file.
         </div>
 
       </div>

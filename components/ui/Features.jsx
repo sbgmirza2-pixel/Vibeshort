@@ -3,28 +3,28 @@ import React from 'react';
 export default function Features() {
   const featuresList = [
     {
-      title: 'Short Drama Episodes',
-      description: 'VibeShort keeps its stories short, with episodes designed for quick viewing. Instead of sitting through a long program, you can finish an episode in a few minutes and continue the story later. This format works well when you want entertainment during a break, commute, or spare moment.'
+      title: 'AI Short Dramas',
+      description: 'AI-generated storytelling sits at the center of VibeShort. The app uses short visual stories with fictional characters, dialogue, conflicts, and quick plot twists. This gives the platform a different identity from regular video apps that mainly depend on traditional television or movie content.'
     },
     {
-      title: 'Comic-Style Visuals',
-      description: 'Stories use a comic-inspired visual style that gives scenes a distinct look. Characters, dialogue, backgrounds, and story moments appear in a format that feels different from regular streaming shows. The visual approach also helps keep each episode easy to follow, especially when the story moves through several short chapters.'
-    },
-    {
-      title: 'Watch & Read Mode',
-      description: 'VibeShort gives you two ways to follow selected stories. Watch Mode focuses on the visual episode experience, while Read Mode presents the story in a reading format. Having both options lets you choose the style that feels more comfortable without leaving the same story.'
+      title: 'Short Episode Format',
+      description: 'VibeShort breaks its stories into small episodes. Many chapters take only a minute or two, which suits quick viewing sessions. You can watch a few episodes during a short break without committing to a full-length program.'
     },
     {
       title: 'Multiple Drama Genres',
-      description: 'The library covers several themes, including romance, fantasy, revenge, dark romance, time travel, and billionaire stories. This range gives you more choices when one type of drama does not match your mood. You can move between different story themes instead of staying with one category.'
+      description: 'The library covers a broad selection of genres. Romance, revenge, billionaire, fantasy, and werewolf stories appear among the main themes promoted by VibeShort. Other titles add comedy, action, family conflict, suspense, and supernatural plots.'
     },
     {
-      title: 'Daily New Episodes',
-      description: 'New story content gives regular users more reasons to return to the app. Fresh episodes can add another chapter to an ongoing series or introduce a different story. If you enjoy short dramas, a steady flow of new content can make the library feel less repetitive over time.'
+      title: 'Vertical Mobile Viewing',
+      description: 'VibeShort uses a vertical format that fits the phone screen. You do not need to rotate your device for the main viewing experience. The layout also feels familiar to people who already watch reels and other short-form videos on mobile.'
     },
     {
       title: 'Offline Viewing',
-      description: 'Selected content can support offline access, which helps when you do not want to rely on a constant internet connection. You can prepare episodes in advance and watch them later. This can be useful during travel, weak network coverage, or times when mobile data is limited.'
+      description: 'VibeShort supports episode downloads for offline viewing. This is useful during travel or in places with weak internet access. Download the episodes you need while connected to a stable network, then check the download list before going offline.'
+    },
+    {
+      title: 'Updated Drama Library',
+      description: 'The VibeShort catalog changes as new stories and episodes arrive. Recent releases have also included bug fixes and playback improvements. The current third-party listing reports version 2.27.0 as the latest release, dated August 23, 2026.'
     }
   ];
 
@@ -35,10 +35,10 @@ export default function Features() {
         {/* Section Heading */}
         <div className="text-center space-y-3">
           <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
-            VibeShort <span className="text-[#B8F000]">Features</span>
+            Main Features of <span className="text-[#B8F000]">VibeShort</span>
           </h2>
           <p className="text-sm lg:text-base text-gray-400 max-w-xl mx-auto">
-            Discover what makes VibeShort the ultimate platform for short-form drama entertainment.
+            Discover what makes VibeShort the ultimate platform for AI-powered short drama entertainment.
           </p>
         </div>
 

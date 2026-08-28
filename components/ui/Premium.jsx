@@ -7,16 +7,22 @@ export default function Premium() {
         
         {/* Section Heading */}
         <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
-          VibeShort <span className="text-[#B8F000]">Premium</span>
+          VibeShort <span className="text-[#B8F000]">Coins, VIP and Premium Access</span>
         </h2>
 
-        {/* Simple Text without Box */}
-        <div className="space-y-1 text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+        {/* Content Paragraphs */}
+        <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed text-left sm:text-center max-w-2xl mx-auto">
           <p>
-            VibeShort offers paid options for users who want more from the platform. Premium access can provide additional benefits beyond the standard experience.
+            VibeShort is free to download, but it is not a completely free service.
           </p>
           <p>
-            Before choosing a subscription, check the price, billing period, included benefits, and cancellation terms shown inside the app. This is especially important because subscription offers can change.
+            Google Play currently lists ads and in-app purchases for the app. User reviews also mention coins, VIP access, and paid subscriptions. Some later episodes may require payment or another form of access.
+          </p>
+          <p>
+            This creates an important difference between free download and free access to every episode. Installing VibeShort does not automatically mean every drama and chapter is available at no cost.
+          </p>
+          <p>
+            Prices can also vary by platform and region. Check the purchase screen inside the app before confirming a payment.
           </p>
         </div>
 

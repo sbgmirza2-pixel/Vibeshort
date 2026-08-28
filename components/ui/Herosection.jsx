@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const [isShareOpen, setIsShareOpen] = useState(false);
@@ -18,21 +19,21 @@ export default function HeroSection() {
           VibeShort <span className="text-[#B8F000]">APK</span>
         </h1>
 
-        {/* Description from PDF */}
+        {/* Updated Description */}
         <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          VibeShort APK gives Android users a simple way to watch short dramas, romance stories, fantasy series, and quick comic-style episodes. The app focuses on short-form entertainment, so you can open an episode, follow the story, and move to the next part without spending much time on each chapter.
+          VibeShort APK brings short dramas and reels to a mobile-first format. The app focuses on AI-generated stories, quick episodes, and mini-series that suit viewers who prefer short sessions instead of long TV episodes. Romance, fantasy, revenge, billionaire, werewolf, comedy, and other drama themes are part of its growing library. Many episodes take only a few minutes to finish, so it is easy to watch a few chapters during a break. The official Android listing also shows a large audience, with more than 10 million downloads and over 300,000 reviews.
         </p>
 
         {/* Buttons & Rating Container (Stacked: Download on top, Rating/Share below) */}
         <div className="flex flex-col items-center gap-3 pt-2">
           
-          {/* Download Button (Top) */}
-          <a
-            href="#download"
+          {/* Download Button (Top) - Now Clickable to Download Page */}
+          <Link
+            href="/vibeshort-apk"
             className="px-8 py-3.5 rounded-xl font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/30 inline-flex items-center justify-center gap-2"
           >
             Download VibeShort APK
-          </a>
+          </Link>
 
           {/* Combined Rating & Share Box (Bottom) */}
           <div className="px-5 py-3 rounded-xl border border-[#B8F000]/50 hover:border-[#B8F000] hover:shadow-[0_0_15px_rgba(184,240,0,0.3)] transition flex items-center gap-4 bg-transparent text-sm text-gray-300">
@@ -139,7 +140,7 @@ export default function HeroSection() {
                   <span className="text-[10px] font-bold">WhatsApp</span>
                 </a>
 
-                
+                {/* Telegram */}
                 <a
                   href={`https://t.me/share/url?url=${shareUrl}&text=${shareText}`}
                   target="_blank"
@@ -151,7 +152,7 @@ export default function HeroSection() {
                   <span className="text-[10px] font-bold">Telegram</span>
                 </a>
 
-              
+                {/* Reddit */}
                 <a
                   href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareText}`}
                   target="_blank"
