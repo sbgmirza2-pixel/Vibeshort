@@ -45,7 +45,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <a href="#download" className="hover:text-[#B8F000] transition-colors">
+              <a href="/vibeshort-apk" className="hover:text-[#B8F000] transition-colors">
                 Download APK
               </a>
             </li>

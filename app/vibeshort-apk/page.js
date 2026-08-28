@@ -21,7 +21,7 @@ export default function DownloadPage() {
   }, [timeLeft]);
 
   return (
-    <div className="min-h-screen bg-[#080A14] text-white flex flex-col justify-between">
+    <div className="min-h-screen bg-[#0D0D12] text-white flex flex-col justify-between">
       <Navbar />
 
       <main className="py-16 px-6 flex-grow">
@@ -37,7 +37,7 @@ export default function DownloadPage() {
             </p>
           </div>
 
-          {/* Extreme Level Cyber Timer Box */}
+          {/* Extreme Level Cyber Timer Box with Pulsing Light Effect */}
           <div className="p-8 rounded-2xl bg-[#0D0D12] border border-[#B8F000]/30 shadow-2xl shadow-[#B8F000]/10 text-center space-y-6 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#B8F000] to-transparent animate-pulse"></div>
             
@@ -46,7 +46,7 @@ export default function DownloadPage() {
             </p>
 
             <div className="flex justify-center items-center gap-4 py-4">
-              <div className="relative w-28 h-28 rounded-2xl bg-black border-2 border-[#B8F000] flex items-center justify-center shadow-[0_0_25px_rgba(184,240,0,0.2)]">
+              <div className="relative w-28 h-28 rounded-2xl bg-black border-2 border-[#B8F000] flex items-center justify-center shadow-[0_0_30px_rgba(184,240,0,0.3)] animate-pulse">
                 <span className="text-4xl sm:text-5xl font-black text-[#B8F000] font-mono">
                   {timeLeft < 10 ? `0${timeLeft}` : timeLeft}
                 </span>

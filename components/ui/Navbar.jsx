@@ -32,11 +32,13 @@ export default function Navbar() {
           <Link href="/#home" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
             Home
           </Link>
-          <Link href="/#about" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
-            About
-          </Link>
+        
           <Link href="/blog" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
             Blog
+          </Link>
+
+          <Link href="/faqs" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
+            FAQs
           </Link>
         </nav>
 
@@ -77,13 +79,7 @@ export default function Navbar() {
           >
             Home
           </Link>
-          <Link
-            href="/#about"
-            onClick={() => setIsOpen(false)}
-            className="block text-base font-medium text-gray-200 hover:text-[#B8F000]"
-          >
-            About
-          </Link>
+          
           <Link
             href="/blog"
             onClick={() => setIsOpen(false)}
@@ -91,6 +87,15 @@ export default function Navbar() {
           >
             Blog
           </Link>
+
+          <Link
+            href="/faqs"
+            onClick={() => setIsOpen(false)}
+            className="block text-base font-medium text-gray-200 hover:text-[#B8F000]"
+          >
+            FAQs
+          </Link>
+
           <div className="pt-2">
             <Link
               href="/vibeshort-apk"

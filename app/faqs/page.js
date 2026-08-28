@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '@/components/ui/Navbar';
+import Footer from '@/components/ui/Footer'; 
 
 export default function FaqsPage() {
   const allFaqs = [
@@ -34,10 +35,12 @@ export default function FaqsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0D0D12] text-white">
+    <div className="min-h-screen bg-[#0D0D12] text-white flex flex-col justify-between">
+      {/* Top Navbar */}
       <Navbar />
 
-      <main className="py-16 px-6">
+      {/* Main Content */}
+      <main className="py-16 px-6 flex-grow">
         <div className="max-w-3xl mx-auto space-y-8">
           
           {/* Page Heading */}
@@ -69,6 +72,9 @@ export default function FaqsPage() {
 
         </div>
       </main>
+
+      {/* Bottom Footer */}
+      <Footer />
     </div>
   );
 }
