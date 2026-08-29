@@ -126,6 +126,54 @@ export default function AdminDashboard() {
     fetchDashboardData();
   }, [router]);
 
+  // Categories Submit Handler
+  const handleCatSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem('adminToken');
+    const url = editingCatId 
+      ? `${API_URL}/api/admin/categories/edit/${editingCatId}`
+      : `${API_URL}/api/admin/categories/add`;
+    const method = editingCatId ? 'PUT' : 'POST';
+
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(catForm),
+        credentials: 'include'
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      setMessage(editingCatId ? 'Category updated successfully!' : 'Category added successfully!');
+      setEditingCatId(null);
+      setCatForm({ name: '', slug: '', description: '' });
+      fetchDashboardData();
+    } catch (err) {
+      setMessage(`Error: ${err.message}`);
+    }
+  };
+
+  const handleDeleteCategory = async (id) => {
+    if (!confirm('Are you sure you want to delete this category?')) return;
+    const token = localStorage.getItem('adminToken');
+    try {
+      const res = await fetch(`${API_URL}/api/admin/categories/delete/${id}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include'
+      });
+      if (!res.ok) throw new Error('Failed to delete category');
+      setMessage('Category deleted successfully!');
+      fetchDashboardData();
+    } catch (err) {
+      setMessage(`Error: ${err.message}`);
+    }
+  };
+
   // Admin User Submission Handler
   const handleAdminSubmit = async (e) => {
     e.preventDefault();
@@ -206,6 +254,76 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleDeleteMedia = async (id) => {
+    if (!confirm('Are you sure you want to delete this media item?')) return;
+    const token = localStorage.getItem('adminToken');
+    try {
+      const res = await fetch(`${API_URL}/api/admin/media/delete/${id}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include'
+      });
+      if (!res.ok) throw new Error('Failed to delete media');
+      setMessage('Media deleted successfully!');
+      fetchDashboardData();
+    } catch (err) {
+      setMessage(`Error: ${err.message}`);
+    }
+  };
+
+  const handleDeleteApk = async (id) => {
+    if (!confirm('Are you sure you want to delete this APK?')) return;
+    const token = localStorage.getItem('adminToken');
+    try {
+      const res = await fetch(`${API_URL}/api/admin/apk/delete/${id}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include'
+      });
+      if (!res.ok) throw new Error('Failed to delete APK');
+      setMessage('APK deleted successfully!');
+      fetchDashboardData();
+    } catch (err) {
+      setMessage(`Error: ${err.message}`);
+    }
+  };
+
+  const handleEditApkClick = (apk) => {
+    setEditingId(apk._id);
+    setForm({
+      name: apk.name || '',
+      version: apk.version || '',
+      packageName: apk.packageName || '',
+      developer: apk.developer || 'VibeShort Inc.',
+      category: apk.category || '',
+      apkSize: apk.apkSize || '50 MB',
+      androidRequirement: apk.androidRequirement || 'Android 5.0+',
+      appIcon: apk.appIcon || '',
+      featuredImage: apk.featuredImage || '',
+      screenshots: Array.isArray(apk.screenshots) ? apk.screenshots.join(', ') : (apk.screenshots || ''),
+      shortDescription: apk.shortDescription || '',
+      fullDescription: apk.fullDescription || '',
+      features: Array.isArray(apk.features) ? apk.features.join('\n') : (apk.features || ''),
+      whatsNew: apk.whatsNew || '',
+      downloadUrl: apk.downloadUrl || '',
+      mirrorDownloadUrl: apk.mirrorDownloadUrl || '',
+      officialWebsite: apk.officialWebsite || '',
+      lastUpdated: apk.lastUpdated ? apk.lastUpdated.split('T')[0] : '',
+      slug: apk.slug || '',
+      status: apk.status || 'draft',
+      seoTitle: apk.seoTitle || '',
+      metaDescription: apk.metaDescription || '',
+      focusKeyword: apk.focusKeyword || '',
+      canonicalUrl: apk.canonicalUrl || '',
+      ogTitle: apk.ogTitle || '',
+      ogDescription: apk.ogDescription || '',
+      ogImage: apk.ogImage || '',
+      robotsSettings: apk.robotsSettings || 'index, follow',
+      schemaMarkup: apk.schemaMarkup || ''
+    });
+    setActiveTab('add-apk');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -232,7 +350,7 @@ export default function AdminDashboard() {
       setMessage(editingId ? 'APK version and download links updated successfully!' : 'New APK version added successfully!');
       setEditingId(null);
       setForm({
-        name: '', version: '', packageName: form.packageName, developer: 'VibeShort Inc.',
+        name: '', version: '', packageName: '', developer: 'VibeShort Inc.',
         category: categories[0]?.name || '', apkSize: '50 MB', androidRequirement: 'Android 5.0+',
         appIcon: '', featuredImage: '', screenshots: '', shortDescription: '',
         fullDescription: '', features: '', whatsNew: '', downloadUrl: '',
@@ -247,6 +365,20 @@ export default function AdminDashboard() {
       setMessage(`Error: ${err.message}`);
     }
   };
+
+  // Filtered APKs list
+  const filteredApks = apks.filter(apk => {
+    const matchesSearch = apk.name?.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          apk.packageName?.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory ? apk.category === selectedCategory : true;
+    const matchesStatus = selectedStatus ? apk.status === selectedStatus : true;
+    return matchesSearch && matchesCategory && matchesStatus;
+  });
+
+  const filteredMedia = mediaList.filter(item => {
+    if (mediaTypeFilter === 'all') return true;
+    return item.mediaType === mediaTypeFilter;
+  });
 
   return (
     <div className="min-h-screen bg-[#0D0D12] text-white flex flex-col md:flex-row">
@@ -301,7 +433,19 @@ export default function AdminDashboard() {
               APKs Version & Downloads
             </button>
             <button
-              onClick={() => setActiveTab('add-apk')}
+              onClick={() => {
+                setEditingId(null);
+                setForm({
+                  name: '', version: '', packageName: '', developer: 'VibeShort Inc.',
+                  category: categories[0]?.name || '', apkSize: '50 MB', androidRequirement: 'Android 5.0+',
+                  appIcon: '', featuredImage: '', screenshots: '', shortDescription: '',
+                  fullDescription: '', features: '', whatsNew: '', downloadUrl: '',
+                  mirrorDownloadUrl: '', officialWebsite: '', lastUpdated: '', slug: '', status: 'draft',
+                  seoTitle: '', metaDescription: '', focusKeyword: '', canonicalUrl: '',
+                  ogTitle: '', ogDescription: '', ogImage: '', robotsSettings: 'index, follow', schemaMarkup: ''
+                });
+                setActiveTab('add-apk');
+              }}
               className={`w-full flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-bold transition-all border cursor-pointer ${
                 activeTab === 'add-apk' ? 'bg-[#B8F000]/10 border-[#B8F000] text-[#B8F000]' : 'bg-transparent border-white/10 text-gray-300 hover:border-[#B8F000]/50 hover:text-[#B8F000]'
               }`}
@@ -473,6 +617,272 @@ export default function AdminDashboard() {
                 ))}
               </div>
             </div>
+          </div>
+        )}
+
+        {/* TAB 3: Categories Management */}
+        {activeTab === 'categories' && (
+          <div className="bg-[#121218] p-6 rounded-2xl border border-white/10 space-y-6">
+            <div className="flex justify-between items-center">
+              <div>
+                <h2 className="text-lg font-bold text-white">{editingCatId ? 'Edit Category' : 'Add New Category'}</h2>
+                <p className="text-xs text-gray-400">Organize your applications into logical groups.</p>
+              </div>
+              {editingCatId && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditingCatId(null);
+                    setCatForm({ name: '', slug: '', description: '' });
+                  }}
+                  className="text-xs text-gray-400 hover:text-white underline cursor-pointer"
+                >
+                  Cancel Edit
+                </button>
+              )}
+            </div>
+
+            <form onSubmit={handleCatSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <input 
+                  type="text" 
+                  placeholder="Category Name *" 
+                  value={catForm.name} 
+                  onChange={e => setCatForm({...catForm, name: e.target.value})} 
+                  required 
+                  className="px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#B8F000]" 
+                />
+                <input 
+                  type="text" 
+                  placeholder="Slug (optional)" 
+                  value={catForm.slug} 
+                  onChange={e => setCatForm({...catForm, slug: e.target.value})} 
+                  className="px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#B8F000]" 
+                />
+                <input 
+                  type="text" 
+                  placeholder="Description" 
+                  value={catForm.description} 
+                  onChange={e => setCatForm({...catForm, description: e.target.value})} 
+                  className="px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#B8F000]" 
+                />
+              </div>
+              <button
+                type="submit"
+                className="px-6 py-3 rounded-xl font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition text-sm cursor-pointer"
+              >
+                {editingCatId ? 'Update Category' : 'Save Category'}
+              </button>
+            </form>
+
+            <div className="pt-6 border-t border-white/10 space-y-4">
+              <h3 className="text-md font-bold text-white">Existing Categories</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {categories.map((cat) => (
+                  <div key={cat._id} className="p-4 bg-[#0D0D12] rounded-xl border border-white/5 space-y-2 flex flex-col justify-between">
+                    <div>
+                      <p className="font-bold text-sm text-white">{cat.name}</p>
+                      <p className="text-xs text-gray-400">Slug: {cat.slug}</p>
+                      <p className="text-xs text-gray-500 mt-1">{cat.description || 'No description'}</p>
+                    </div>
+                    <div className="flex gap-2 pt-2 border-t border-white/5">
+                      <button
+                        onClick={() => {
+                          setEditingCatId(cat._id);
+                          setCatForm({ name: cat.name, slug: cat.slug, description: cat.description || '' });
+                        }}
+                        className="px-3 py-1 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-semibold transition cursor-pointer"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDeleteCategory(cat._id)}
+                        className="px-3 py-1 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg text-xs font-semibold transition cursor-pointer"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 4: Media Library */}
+        {activeTab === 'media' && (
+          <div className="bg-[#121218] p-6 rounded-2xl border border-white/10 space-y-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div>
+                <h2 className="text-lg font-bold text-white">Media Library</h2>
+                <p className="text-xs text-gray-400">Upload and manage images, icons, and screenshots.</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <select
+                  value={mediaTypeFilter}
+                  onChange={e => setMediaTypeFilter(e.target.value)}
+                  className="px-3 py-2 bg-[#0D0D12] border border-white/10 rounded-xl text-xs text-white focus:outline-none"
+                >
+                  <option value="all">All Types</option>
+                  <option value="icon">Icons</option>
+                  <option value="screenshot">Screenshots</option>
+                  <option value="general">General</option>
+                </select>
+                <label className="px-4 py-2 rounded-xl font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition text-xs cursor-pointer">
+                  {uploadingMedia ? 'Uploading...' : '+ Upload Images'}
+                  <input type="file" multiple onChange={e => handleMediaUpload(e, 'general')} className="hidden" />
+                </label>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {filteredMedia.map((item) => (
+                <div key={item._id} className="bg-[#0D0D12] rounded-xl border border-white/10 overflow-hidden group relative flex flex-col justify-between">
+                  <div className="h-32 bg-black/40 flex items-center justify-center overflow-hidden">
+                    <img src={item.url} alt={item.filename || 'Media'} className="object-cover w-full h-full group-hover:scale-105 transition" />
+                  </div>
+                  <div className="p-2.5 space-y-1">
+                    <p className="text-xs text-gray-300 truncate">{item.filename || 'Image'}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-[#B8F000] uppercase font-bold">{item.mediaType}</span>
+                      <button
+                        onClick={() => handleDeleteMedia(item._id)}
+                        className="text-[10px] text-red-400 hover:underline cursor-pointer"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 5: APKs Version & Downloads */}
+        {activeTab === 'apks' && (
+          <div className="bg-[#121218] p-6 rounded-2xl border border-white/10 space-y-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div>
+                <h2 className="text-lg font-bold text-white">All APKs & Versions</h2>
+                <p className="text-xs text-gray-400">Manage published apps, downloads, and versions.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 text-xs">
+                <input
+                  type="text"
+                  placeholder="Search APK..."
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  className="px-3 py-2 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none"
+                />
+                <select
+                  value={selectedStatus}
+                  onChange={e => setSelectedStatus(e.target.value)}
+                  className="px-3 py-2 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none"
+                >
+                  <option value="">All Status</option>
+                  <option value="published">Published</option>
+                  <option value="draft">Draft</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {filteredApks.map((apk) => (
+                <div key={apk._id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-[#0D0D12] rounded-xl border border-white/5 gap-4">
+                  <div className="flex items-center gap-4">
+                    {apk.appIcon ? (
+                      <img src={apk.appIcon} alt="" className="w-12 h-12 rounded-xl object-cover border border-white/10" />
+                    ) : (
+                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-bold text-xs text-gray-400">APK</div>
+                    )}
+                    <div>
+                      <p className="font-bold text-sm text-white">{apk.name} <span className="text-xs font-normal text-gray-400">v{apk.version}</span></p>
+                      <p className="text-xs text-gray-400">Package: {apk.packageName} | Category: {apk.category}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase ${apk.status === 'published' ? 'bg-green-500/10 text-green-400' : 'bg-amber-500/10 text-amber-400'}`}>
+                      {apk.status}
+                    </span>
+                    <button
+                      onClick={() => handleEditApkClick(apk)}
+                      className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-semibold transition cursor-pointer"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDeleteApk(apk._id)}
+                      className="px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg text-xs font-semibold transition cursor-pointer"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 6: Add / Edit APK Form */}
+        {activeTab === 'add-apk' && (
+          <div className="bg-[#121218] p-6 rounded-2xl border border-white/10 space-y-6">
+            <h2 className="text-lg font-bold text-white">{editingId ? 'Edit APK Details' : 'Add New APK Details'}</h2>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">App Name *</label>
+                  <input type="text" value={form.name} onChange={e => setForm({...form, name: e.target.value})} required className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none" />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">Version *</label>
+                  <input type="text" value={form.version} onChange={e => setForm({...form, version: e.target.value})} required className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none" />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">Package Name (com.app) *</label>
+                  <input type="text" value={form.packageName} onChange={e => setForm({...form, packageName: e.target.value})} required className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none" />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">Category *</label>
+                  <select value={form.category} onChange={e => setForm({...form, category: e.target.value})} required className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none">
+                    <option value="">Select Category</option>
+                    {categories.map(c => <option key={c._id} value={c.name}>{c.name}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">App Icon URL</label>
+                  <input type="text" value={form.appIcon} onChange={e => setForm({...form, appIcon: e.target.value})} className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none" />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">Status</label>
+                  <select value={form.status} onChange={e => setForm({...form, status: e.target.value})} className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none">
+                    <option value="draft">Draft</option>
+                    <option value="published">Published</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">Download URL *</label>
+                  <input type="text" value={form.downloadUrl} onChange={e => setForm({...form, downloadUrl: e.target.value})} required className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none" />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1">Mirror Download URL</label>
+                  <input type="text" value={form.mirrorDownloadUrl} onChange={e => setForm({...form, mirrorDownloadUrl: e.target.value})} className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none" />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs text-gray-400 mb-1">Short Description</label>
+                <textarea value={form.shortDescription} onChange={e => setForm({...form, shortDescription: e.target.value})} rows="2" className="w-full px-4 py-3 bg-[#0D0D12] border border-white/10 rounded-xl text-white focus:outline-none text-sm"></textarea>
+              </div>
+
+              <button type="submit" className="px-6 py-3 rounded-xl font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition text-sm cursor-pointer">
+                {editingId ? 'Update APK' : 'Publish APK'}
+              </button>
+            </form>
           </div>
         )}
       </main>
