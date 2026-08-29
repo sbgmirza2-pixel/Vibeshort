@@ -27,10 +27,10 @@ export default function CancelSubscription() {
           </p>
 
           <div className="pt-2 text-left space-y-2 max-w-lg mx-auto">
-            <p className="text-white font-bold text-sm uppercase tracking-wider  text-[#B8F000]">
+            <p className="text-white font-bold text-base md:text-lg uppercase tracking-wider text-center text-[#B8F000]">
               Follow these steps:
             </p>
-            <ul className="list-decimal list-inside space-y-2 text-gray-400 text-xs sm:text-sm">
+            <ul className="list-decimal list-inside space-y-2 text-gray-300 text-sm sm:text-base">
               {steps.map((step, index) => (
                 <li key={index}>{step}</li>
               ))}

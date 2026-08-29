@@ -28,7 +28,7 @@ export default function DownloadGuide() {
           </p>
 
           <div className="pt-2 text-left space-y-2 max-w-lg mx-auto">
-            <ul className="list-decimal list-inside space-y-2 text-gray-400 text-xs sm:text-sm">
+            <ul className="list-decimal list-inside space-y-2 text-gray-300 text-sm sm:text-base">
               {steps.map((step, index) => (
                 <li key={index}>{step}</li>
               ))}

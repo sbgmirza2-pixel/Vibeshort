@@ -70,7 +70,7 @@ export default function TroubleshootingAndTips() {
           <p className="text-gray-300 text-sm sm:text-base text-center leading-relaxed">
             A few checks can save time before you start a new drama.
           </p>
-          <ul className="list-disc list-inside space-y-2 text-gray-400 text-xs sm:text-sm pt-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-300 text-sm sm:text-base pt-2">
             {tips.map((tip, index) => (
               <li key={index}>{tip}</li>
             ))}

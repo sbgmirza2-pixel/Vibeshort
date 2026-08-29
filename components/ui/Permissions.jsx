@@ -20,10 +20,10 @@ export default function Permissions() {
           </p>
           
           <div className="pt-2 text-left space-y-2 max-w-lg mx-auto">
-            <p className="text-white font-bold text-sm uppercase tracking-wider text-center text-[#B8F000]">
+            <p className="text-white font-bold text-base md:text-lg uppercase tracking-wider text-center text-[#B8F000]">
               Pay particular attention to permissions related to:
             </p>
-            <ul className="list-disc list-inside space-y-1 text-gray-400 text-xs sm:text-sm">
+            <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm sm:text-base">
               <li>Storage or media access</li>
               <li>Notifications</li>
               <li>Network access</li>

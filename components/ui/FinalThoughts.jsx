@@ -25,15 +25,6 @@ export default function FinalThoughts() {
             Privacy deserves attention too. Google Play reports data collection and sharing details, while third-party APK files require an additional security check.
           </p>
 
-          <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-2">
-            <h3 className="text-white font-bold text-base sm:text-lg text-[#B8F000]">
-              Important APK Verification Details
-            </h3>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-              If you choose VibeShort APK instead of the official Play Store installation, verify the exact package, version, file format, and source first. The current third-party listing reports version <span className="text-white font-semibold">2.27.0</span> with package name <code className="text-[#B8F000] bg-black/60 px-2 py-0.5 rounded text-xs sm:text-sm">com.vibeshort.visualnovel.android</code> and Android 7.0+ support.
-            </p>
-          </div>
-
         </div>
 
       </div>

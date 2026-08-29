@@ -8,8 +8,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0D0D12]/95 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+    <header className="sticky top-4 z-50 px-4 sm:px-6">
+      {/* Floating Pill Container */}
+      <div className="max-w-7xl mx-auto bg-[#0D0D12]/95 backdrop-blur-md border border-white/15 rounded-full shadow-2xl shadow-black/50 px-6 h-20 flex items-center justify-between">
         
         {/* Left Side: Logo in a circle */}
         <div className="flex items-center">
@@ -34,7 +35,7 @@ export default function Navbar() {
           </Link>
         
           <Link href="/blog" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
-            Blog
+            Blogs
           </Link>
 
           <Link href="/faqs" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
@@ -46,9 +47,9 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/vibeshort-apk"
-            className="hidden sm:inline-flex px-6 py-3 rounded-xl text-base font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/25"
+            className="hidden sm:inline-flex px-6 py-3 rounded-full text-base font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/25"
           >
-            Download APK
+            Download Now
           </Link>
 
           {/* Mobile Menu Button */}
@@ -69,9 +70,9 @@ export default function Navbar() {
 
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu (Floating style matching) */}
       {isOpen && (
-        <div className="md:hidden bg-[#0D0D12] border-b border-white/10 px-6 py-4 space-y-3">
+        <div className="max-w-7xl mx-auto mt-2 md:hidden bg-[#0D0D12] border border-white/15 rounded-2xl px-6 py-4 space-y-3 shadow-2xl">
           <Link
             href="/#home"
             onClick={() => setIsOpen(false)}
@@ -85,7 +86,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
             className="block text-base font-medium text-gray-200 hover:text-[#B8F000]"
           >
-            Blog
+            Blogs
           </Link>
 
           <Link
@@ -100,9 +101,9 @@ export default function Navbar() {
             <Link
               href="/vibeshort-apk"
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-[#0D0D12] bg-[#B8F000]"
+              className="block w-full text-center px-4 py-3 rounded-full text-base font-bold text-[#0D0D12] bg-[#B8F000]"
             >
-              Download APK
+              Download Now
             </Link>
           </div>
         </div>

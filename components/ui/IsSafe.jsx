@@ -23,10 +23,10 @@ export default function IsSafe() {
           </p>
           
           <div className="pt-2 text-left space-y-2 max-w-lg mx-auto">
-            <p className="text-white font-bold text-sm uppercase tracking-wider text-center text-[#B8F000]">
+            <p className="text-white font-bold text-base md:text-lg uppercase tracking-wider text-center text-[#B8F000]">
               Before installing VibeShort APK:
             </p>
-            <ul className="list-disc list-inside space-y-1 text-gray-400 text-xs sm:text-sm">
+            <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm sm:text-base">
               <li>Confirm the package name.</li>
               <li>Check the version number.</li>
               <li>Compare the reported file size.</li>

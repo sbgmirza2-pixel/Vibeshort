@@ -2,36 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 
 export default function DownloadPage() {
-  const params = useParams();
-  const slug = params?.slug;
-
-  const [apk, setApk] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [timeLeft, setTimeLeft] = useState(15);
   const [canDownload, setCanDownload] = useState(false);
-
-  // Fetch APK details dynamically based on slug from backend
-  useEffect(() => {
-    if (!slug) return;
-    
-    fetch(`http://localhost:5000/api/apks/${slug}`)
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch');
-        return res.json();
-      })
-      .then(data => {
-        setApk(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  }, [slug]);
 
   // Countdown timer logic
   useEffect(() => {
@@ -45,38 +22,17 @@ export default function DownloadPage() {
     }
   }, [timeLeft]);
 
-  const handleDownloadClick = async () => {
-    if (!apk?._id) return;
-    try {
-      // Trigger backend download count increment
-      await fetch(`http://localhost:5000/api/apks/download/${apk._id}`, {
-        method: 'POST'
-      });
-    } catch {
-      // Ignore count error if network drops, proceed with download
-    }
+  const handleDownloadClick = () => {
+    // Optional: Add download analytics or click tracking here if needed
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#0D0D12] text-white flex flex-col justify-between">
-        <Navbar />
-        <main className="py-24 text-center">
-          <p className="text-sm font-medium animate-pulse text-[#B8F000]">Loading download details...</p>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
-  // Fallback defaults if specific APK data is missing
-  const appName = apk?.name || 'VibeShort MOD APK';
-  const version = apk?.version || '2.27.0';
-  const androidReq = apk?.androidRequirement || 'Android 7.0+';
-  const fileSize = apk?.apkSize || '120.5 MB';
-  const packageName = apk?.packageName || 'com.vibeshort.visualnovel.android';
-  const mainDownloadUrl = apk?.downloadUrl || '/downloads/vibeshort-v2.27.0.apk';
-  const mirrorUrl = apk?.mirrorDownloadUrl;
+  // Static App Details for this page
+  const appName = 'VibeShort MOD APK';
+  const version = '2.27.0';
+  const androidReq = 'Android 7.0+';
+  const fileSize = '120.5 MB';
+  const packageName = 'com.vibeshort.visualnovel.android';
+  const mainDownloadUrl = '/downloads/vibeshort-v2.27.0.apk';
 
   return (
     <div className="min-h-screen bg-[#0D0D12] text-white flex flex-col justify-between">
@@ -91,7 +47,11 @@ export default function DownloadPage() {
               Download <span className="text-[#B8F000]">{appName}</span>
             </h1>
             <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Download {appName} safely with the latest file details, Android requirements, version info, and verified download links.
+              Download{' '}
+              <Link href="/#home" className="text-[#B8F000] hover:underline transition-colors">
+                VibeShort
+              </Link>{' '}
+              MOD APK safely with the latest file details, Android requirements, version info, and verified download links.
             </p>
           </div>
 
@@ -116,30 +76,16 @@ export default function DownloadPage() {
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               {canDownload ? (
-                <>
-                  <a
-                    href={mainDownloadUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleDownloadClick}
-                    download
-                    className="inline-block px-8 py-4 rounded-xl font-extrabold text-sm sm:text-base tracking-wider uppercase bg-[#B8F000] text-[#0D0D12] hover:bg-[#a3d500] transition-all transform hover:scale-105 shadow-lg shadow-[#B8F000]/40 animate-bounce"
-                  >
-                    Download Main APK ({fileSize})
-                  </a>
-
-                  {mirrorUrl && (
-                    <a
-                      href={mirrorUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleDownloadClick}
-                      className="inline-block px-8 py-4 rounded-xl font-extrabold text-sm sm:text-base tracking-wider uppercase bg-cyan-500 text-black hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/30"
-                    >
-                      Mirror Download Link
-                    </a>
-                  )}
-                </>
+                <a
+                  href={mainDownloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleDownloadClick}
+                  download
+                  className="inline-block px-8 py-4 rounded-xl font-extrabold text-sm sm:text-base tracking-wider uppercase bg-[#B8F000] text-[#0D0D12] hover:bg-[#a3d500] transition-all transform hover:scale-105 shadow-lg shadow-[#B8F000]/40 animate-bounce"
+                >
+                  Download Main APK ({fileSize})
+                </a>
               ) : (
                 <button
                   disabled
@@ -236,9 +182,9 @@ export default function DownloadPage() {
             </h2>
             <ol className="space-y-3 list-decimal list-inside text-gray-300 text-sm sm:text-base leading-relaxed">
               <li className="pl-2">Wait for the countdown timer and tap the download link.</li>
-              <li className="pl-2">Open your device's File Manager or Downloads folder.</li>
+              <li className="pl-2">Open your device&apos;s File Manager or Downloads folder.</li>
               <li className="pl-2">Tap on the downloaded APK file.</li>
-              <li className="pl-2">Enable "Install from Unknown Sources" if prompted by your system settings.</li>
+              <li className="pl-2">Enable &quot;Install from Unknown Sources&quot; if prompted by your system settings.</li>
               <li className="pl-2">Tap Install and wait for completion.</li>
               <li className="pl-2">Launch the app and enjoy!</li>
             </ol>
