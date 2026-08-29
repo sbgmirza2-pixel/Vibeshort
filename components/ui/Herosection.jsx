@@ -12,22 +12,27 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative overflow-hidden py-12 px-6 lg:py-20 bg-[#0D0D12]">
-      <div className="max-w-4xl mx-auto space-y-5 text-center flex flex-col items-center">
+      <div className="max-w-4xl mx-auto space-y-6 text-center flex flex-col items-center">
 
         {/* Main Title */}
         <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight text-white">
           VibeShort <span className="text-[#B8F000]">APK</span>
         </h1>
 
-        {/* Updated Description */}
-        <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          VibeShort APK brings short dramas and reels to a mobile-first format. The app focuses on AI-generated stories, quick episodes, and mini-series that suit viewers who prefer short sessions instead of long TV episodes. Romance, fantasy, revenge, billionaire, werewolf, comedy, and other drama themes are part of its growing library. Many episodes take only a few minutes to finish, so it is easy to watch a few chapters during a break. The official Android listing also shows a large audience, with more than 10 million downloads and over 300,000 reviews.
-        </p>
+        {/* Updated Description with Both Paragraphs */}
+        <div className="space-y-4 text-gray-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-center">
+          <p>
+            VibeShort APK brings short dramas and reels to a mobile-first format. The app focuses on AI-generated stories, quick episodes, and mini-series that suit viewers who prefer short sessions instead of long TV episodes. Romance, fantasy, revenge, billionaire, werewolf, comedy, and other drama themes are part of its growing library.
+          </p>
+          <p>
+            Many episodes take only a few minutes to finish, so it is easy to watch a few chapters during a break. The official Android listing also shows a large audience, with more than 10 million downloads and over 300,000 reviews.
+          </p>
+        </div>
 
         {/* Buttons & Rating Container (Stacked: Download on top, Rating/Share below) */}
         <div className="flex flex-col items-center gap-3 pt-2">
           
-          {/* Download Button (Top) - Now Clickable to Download Page */}
+          {/* Download Button (Top) */}
           <Link
             href="/vibeshort-apk"
             className="px-8 py-3.5 rounded-xl font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/30 inline-flex items-center justify-center gap-2"
@@ -66,7 +71,7 @@ export default function HeroSection() {
 
       </div>
 
-      {/* Share Modal Popup (Dark Theme Adjusted) */}
+      {/* Share Modal Popup */}
       {isShareOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
           <div className="bg-[#121218] text-white rounded-2xl w-full max-w-sm shadow-2xl border border-white/10 overflow-hidden relative animate-in fade-in zoom-in duration-200">
