@@ -14,7 +14,7 @@ export default function HeroSection() {
     <section id="home" className="relative overflow-hidden py-12 px-6 lg:py-20 bg-[#0D0D12]">
       <div className="max-w-4xl mx-auto space-y-6 text-center flex flex-col items-center">
 
-        {/* Main Title */}
+        {/* Main */}
         <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight text-white">
           VibeShort <span className="text-[#B8F000]">APK</span>
         </h1>
