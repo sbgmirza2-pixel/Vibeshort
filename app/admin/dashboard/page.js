@@ -73,7 +73,7 @@ export default function AdminDashboard() {
   const fetchDashboardData = async () => {
     const token = localStorage.getItem('adminToken');
     if (!token) {
-      router.replace('/admin/login');
+      router.replace('/admin');
       return;
     }
 
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
       setLoading(false);
     } catch {
       localStorage.removeItem('adminToken');
-      router.replace('/admin/login');
+      router.replace('/admin');
     }
   };
 
@@ -553,7 +553,7 @@ export default function AdminDashboard() {
           <button
             onClick={() => {
               localStorage.removeItem('adminToken');
-              router.replace('/admin/login');
+              router.replace('/admin');
             }}
             className="w-full flex items-center gap-3 text-left px-4 py-2.5 rounded-xl border border-red-500/20 text-red-400 hover:border-red-500/60 hover:bg-red-500/5 transition font-medium cursor-pointer text-sm"
           >
