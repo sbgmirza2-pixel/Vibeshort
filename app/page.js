@@ -2,7 +2,7 @@ import Navbar from '../components/ui/Navbar';
 import HeroSection from '../components/ui/Herosection';
 import AppDetails from '../components/ui/AppDetails';
 import Features from '../components/ui/Features';
-import Premium from '../components/ui/Premium';
+import Premium from '../components/ui/Premium'
 import IsSafe from '../components/ui/IsSafe';
 import WhatIsVibeShort from '../components/ui/WhatIsVibeShort';
 import HowItWorks from '../components/ui/HowItsWorks';
@@ -24,6 +24,7 @@ import VibeShortVsReelShort from '../components/ui/VibeShortVsReelShort';
 import Faqs from '../components/ui/Faqs';
 import FinalThoughts from '../components/ui/FinalThoughts';
 import Footer from '../components/ui/Footer';
+import AppScreenshots from '../components/ui/AppScreenshots';
 
 export const metadata = {
   title: 'VibeShort APK - Download AI Short Dramas & Reels for Android',
@@ -43,6 +44,7 @@ export default function Home() {
 
   
       <AppDetails />
+      <AppScreenshots />
       <WhatIsVibeShort />
       <HowItWorks />
       <Features />

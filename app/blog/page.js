@@ -26,9 +26,10 @@ export default function BlogListingPage() {
           {/* Horizontal Box Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogsData.map((blog) => (
-              <article 
+              <Link 
                 key={blog.slug}
-                className="p-6 rounded-2xl bg-[#121218] border border-white/10 hover:border-[#B8F000]/50 transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xl hover:-translate-y-1"
+                href={`/blog/${blog.slug}`}
+                className="group block w-full h-full p-6 rounded-2xl bg-[#121218] border border-white/10 hover:border-[#B8F000]/55 transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xl hover:-translate-y-1 cursor-pointer"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-xs text-gray-400 font-medium">
@@ -36,7 +37,7 @@ export default function BlogListingPage() {
                     <span>•</span>
                     <span>{blog.readTime}</span>
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-white hover:text-[#B8F000] transition line-clamp-2">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[#B8F000] transition line-clamp-2">
                     {blog.title}
                   </h2>
                   <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
@@ -45,14 +46,11 @@ export default function BlogListingPage() {
                 </div>
 
                 <div className="pt-4 border-t border-white/5">
-                  <Link
-                    href={`/blog/${blog.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#B8F000] hover:underline"
-                  >
+                  <span className="inline-flex items-center gap-2 text-sm font-bold text-[#B8F000] group-hover:underline">
                     Read Full Blog →
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 

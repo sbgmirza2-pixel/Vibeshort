@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-4 z-50 px-4 sm:px-6">
+    <header className="relative z-[999] w-full px-4 pt-4 sm:px-6">
       {/* Floating Pill Container */}
       <div className="max-w-7xl mx-auto bg-[#0D0D12]/95 backdrop-blur-md border border-white/15 rounded-full shadow-2xl shadow-black/50 px-6 h-20 flex items-center justify-between">
         
