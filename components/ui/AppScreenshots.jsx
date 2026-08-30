@@ -23,8 +23,8 @@ export default function AppScreenshots() {
       </div>
 
       {/* Horizontally Scrollable Container */}
-      <div className="w-full overflow-x-auto no-scrollbar scroll-smooth px-4 sm:px-6">
-        <div className="flex items-center gap-6 pb-4 w-max mx-auto md:mx-0">
+      <div className="w-full overflow-x-auto no-scrollbar scroll-smooth">
+        <div className="flex items-center gap-6 pb-4 px-4 sm:px-6 w-max mx-auto">
           {screenshots.map((item) => (
             <div
               key={item.id}
