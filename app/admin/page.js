@@ -38,6 +38,7 @@ export default function AdminLogin() {
           <h1 className="text-2xl font-black text-white">Admin Portal</h1>
           <p className="text-xs text-gray-400">Sign in to manage VibeShort APKs</p>
         </div>
+        
 
         {error && (
           <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-xs p-3 rounded-xl text-center">
