@@ -13,7 +13,11 @@ export default function Platforms() {
         {/* Content Paragraphs */}
         <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed text-left sm:text-center max-w-2xl mx-auto">
           <p>
-            The Android app is available through Google Play under the package name <code className="text-[#B8F000] font-mono text-xs">com.vibeshort.visualnovel.android</code>. Third-party APK listings provide separate Android packages for users who need an APK installation route.
+            The Android app is available through Google Play under the package name{' '}
+            <code className="text-[#B8F000] font-mono text-xs border border-[#B8F000]/40 rounded-md px-2 py-1 inline-block">
+              com.vibeshort.visualnovel.android
+            </code>{' '}
+            Third-party APK listings provide separate Android packages for users who need an APK installation route.
           </p>
           <p>
             VibeShort also has an iOS listing under the name VibeShort: AI Short Dramas. The available features and pricing can differ between platforms, so an Android APK should not be treated as identical to the iPhone version.

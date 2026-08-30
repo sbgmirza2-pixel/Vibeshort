@@ -19,7 +19,11 @@ export default function IsSafe() {
             The official Google Play version has a known developer, package name, store listing, and published data-safety information. A third-party APK needs its own verification.
           </p>
           <p>
-            The current APKPure listing identifies the package as <code className="text-[#B8F000] font-mono text-xs">com.vibeshort.visualnovel.android</code> and reports version 2.27.0. It also provides a SHA-256 value for file verification and recommends scanning the file with a service such as VirusTotal.
+            The current APKPure listing identifies the package as{' '}
+            <code className="text-[#B8F000] font-mono text-xs border border-[#B8F000]/40 rounded-md px-2 py-1 inline-block">
+              com.vibeshort.visualnovel.android
+            </code>{' '}
+            and reports version 2.27.0. It also provides a SHA-256 value for file verification and recommends scanning the file with a service such as VirusTotal.
           </p>
           
           <div className="pt-2 text-left space-y-2 max-w-lg mx-auto">
