@@ -47,7 +47,8 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/vibeshort-apk"
-            className="hidden sm:inline-flex px-6 py-3 rounded-full text-base font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/25"
+            /* rounded-full ki jagah rounded-xl use kiya hai taake rectangle shape rounded corners ke sath ban jaye */
+            className="hidden sm:inline-flex px-6 py-3 rounded-xl text-base font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/25"
           >
             Download Now
           </Link>
@@ -101,7 +102,8 @@ export default function Navbar() {
             <Link
               href="/vibeshort-apk"
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-4 py-3 rounded-full text-base font-bold text-[#0D0D12] bg-[#B8F000]"
+              /* Yahan bhi rounded-full ki jagah rounded-xl kar diya hai */
+              className="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-[#0D0D12] bg-[#B8F000]"
             >
               Download Now
             </Link>
