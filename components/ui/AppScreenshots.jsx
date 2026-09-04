@@ -11,9 +11,10 @@ export default function AppScreenshots() {
     { id: 4, src: '/pic4.webp', alt: 'VibeShort App Screenshot 4' },
   ];
 
- return (
+  return (
     <section className="py-12 bg-[#0D0D12] overflow-hidden relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-6">
+      {/* Heading Centered */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 text-center">
         <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
           App <span className="text-[#B8F000]">Screenshots</span>
         </h2>
@@ -28,7 +29,8 @@ export default function AppScreenshots() {
           {screenshots.map((item) => (
             <div
               key={item.id}
-              className="relative w-[280px] sm:w-[300px] h-[560px] sm:h-[600px] rounded-3xl overflow-hidden border-2 border-white/10 bg-black shadow-xl shadow-black/50 shrink-0 group transition-transform duration-300 hover:scale-[1.02]"
+          
+              className="relative w-[280px] sm:w-[300px] h-[510px] sm:h-[600px] rounded-3xl overflow-hidden border-2 border-white/10 bg-black shadow-xl shadow-black/50 shrink-0 group transition-transform duration-300 hover:scale-[1.02]"
             >
               <Image
                 src={item.src}
