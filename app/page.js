@@ -25,10 +25,11 @@ import Faqs from '../components/ui/Faqs';
 import FinalThoughts from '../components/ui/FinalThoughts';
 import Footer from '../components/ui/Footer';
 import AppScreenshots from '../components/ui/AppScreenshots';
+import BackToHome from '../components/ui/BackToHome'
 
 export const metadata = {
-  title: 'VibeShort APK - Download AI Short Dramas & Reels for Android',
-  description: 'VibeShort APK brings AI short dramas, reels and mini-series to Android. Check the latest version, features, download steps, safety, coins, offline viewing and more.',
+  title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
+  description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
   alternates: {
     canonical: '/vibeshort-apk',
   },
@@ -67,6 +68,7 @@ export default function Home() {
       <VibeShortVsReelShort />
       <Faqs />
       <FinalThoughts />
+      <BackToHome />
       <Footer/>
 
       
