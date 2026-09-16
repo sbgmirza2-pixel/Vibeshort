@@ -45,7 +45,7 @@ That structure works well with short episodes because each chapter can introduce
 <h3>Game Coins Are Part of the Story</h3>
 Game coins are especially important in The Undying Scourge. The story says Zane receives a trillion game coins and uses them to buy rare classes.
 
-Some VibeShort stories also use game-style coins, which are different from the app's regular <a href="/Premium" class="text-[#B8F000] underline font-semibold hover:text-[#D0F000]">VibeShort coin system</a> used to unlock content inside the app. The two should not be confused.
+Some VibeShort stories also use game-style coins, which are different from the app's regular <a href="/blog/vibeshort-coins" class="text-[#B8F000] underline font-semibold hover:text-[#D0F000]">VibeShort coin system</a> used to unlock content inside the app. The two should not be confused.
 
 Game coins inside a story are part of the fictional plot.
 
@@ -191,7 +191,7 @@ You normally have a few choices.
 
 You can wait for another free reward opportunity. You can check whether an advertisement or daily task is available. You can also decide if a subscription makes more sense for the amount of content you plan to watch.
 
-Before you spend your coins, check our <a href="/completestatus" class="text-[#B8F000] underline font-semibold hover:text-[#D0F000]">completed VibeShort dramas</a> to see if the story you want is already finished.
+Before you spend your coins, check our <a href="/blog/vibeshort-completed-dramas" class="text-[#B8F000] underline font-semibold hover:text-[#D0F000]">completed VibeShort dramas</a> to see if the story you want is already finished.
 
 Do not rush into a purchase simply because an episode is locked.
 

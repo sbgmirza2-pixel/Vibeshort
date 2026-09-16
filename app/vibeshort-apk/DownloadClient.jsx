@@ -7,7 +7,7 @@ import Footer from '@/components/ui/Footer';
 
 export default function DownloadClient() {
   const [loading, setLoading] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState(10);
   const [canDownload, setCanDownload] = useState(false);
 
   // Countdown timer logic
