@@ -46,8 +46,8 @@ export default function Navbar() {
         {/* Right Side: Download Button & Mobile Toggle */}
         <div className="flex items-center gap-4">
           <Link
-            href="/vibeshort-apk"
-            /* rounded-full ki jagah rounded-xl use kiya hai taake rectangle shape rounded corners ke sath ban jaye */
+            href="/download"
+            
             className="hidden sm:inline-flex px-6 py-3 rounded-xl text-base font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/25"
           >
             Download Now
@@ -100,9 +100,9 @@ export default function Navbar() {
 
           <div className="pt-2">
             <Link
-              href="/vibeshort-apk"
+              href="/download"
               onClick={() => setIsOpen(false)}
-              /* Yahan bhi rounded-full ki jagah rounded-xl kar diya hai */
+              
               className="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-[#0D0D12] bg-[#B8F000]"
             >
               Download Now

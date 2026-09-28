@@ -1,0 +1,16 @@
+{
+  "name": "VibeShort",
+  "short_name": "VibeShort",
+  "description": "AI Dramas & Reels App",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D12",
+  "theme_color": "#B8F000",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

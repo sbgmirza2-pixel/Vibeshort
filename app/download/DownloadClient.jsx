@@ -28,11 +28,11 @@ export default function DownloadClient() {
 
   // Static App Details for this page
   const appName = 'VibeShort MOD APK';
-  const version = '2.27.0';
+  const version = '2.28.1';
   const androidReq = 'Android 7.0+';
-  const fileSize = '120.5 MB';
+  const fileSize = '122.0 MB';
   const packageName = 'com.vibeshort.visualnovel.android';
-  const mainDownloadUrl = '/downloads/vibeshort-v2.27.0.apk';
+  const mainDownloadUrl = 'https://reeznapk.com/downloads/VibeShort-Mod-APK-2.28.1.apk';
 
   return (
     <div className="min-h-screen bg-[#0D0D12] text-white flex flex-col justify-between">

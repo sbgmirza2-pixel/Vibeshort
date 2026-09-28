@@ -34,7 +34,7 @@ export default function HeroSection() {
           
           {/* Download Button (Top) */}
           <Link
-            href="/vibeshort-apk"
+            href="/download"
             className="px-8 py-3.5 rounded-xl font-bold text-[#0D0D12] bg-[#B8F000] hover:bg-[#D0F000] transition shadow-lg shadow-[#B8F000]/30 border border-white/20 inline-flex items-center justify-center gap-2"
           >
             Download VibeShort APK
