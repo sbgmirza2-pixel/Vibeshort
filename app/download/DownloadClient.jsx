@@ -76,24 +76,23 @@ export default function DownloadClient() {
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               {canDownload ? (
-                <a
-                  href={mainDownloadUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleDownloadClick}
-                  download
-                  className="inline-block px-8 py-4 rounded-xl font-extrabold text-sm sm:text-base tracking-wider uppercase bg-[#B8F000] text-[#0D0D12] hover:bg-[#a3d500] transition-all transform hover:scale-105 shadow-lg shadow-[#B8F000]/40 animate-bounce"
-                >
-                  Download Main APK ({fileSize})
-                </a>
-              ) : (
-                <button
-                  disabled
-                  className="inline-block px-10 py-4 rounded-xl font-bold text-sm sm:text-base tracking-wider uppercase bg-white/10 text-gray-400 cursor-not-allowed border border-white/5"
-                >
-                  Generating Download Links...
-                </button>
-              )}
+  <button
+    onClick={() => {
+      handleDownloadClick();
+      window.open(mainDownloadUrl, '_blank');
+    }}
+    className="inline-block px-8 py-4 rounded-xl font-extrabold text-sm sm:text-base tracking-wider uppercase bg-[#B8F000] text-[#0D0D12] hover:bg-[#a3d500] transition-all transform hover:scale-105 shadow-lg shadow-[#B8F000]/40 animate-bounce cursor-pointer"
+  >
+    Download Main APK ({fileSize})
+  </button>
+) : (
+  <button
+    disabled
+    className="inline-block px-10 py-4 rounded-xl font-bold text-sm sm:text-base tracking-wider uppercase bg-white/10 text-gray-400 cursor-not-allowed border border-white/5"
+  >
+    Generating Download Links...
+  </button>
+)}
             </div>
           </div>
 
