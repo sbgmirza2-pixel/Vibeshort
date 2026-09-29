@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/ui/Navbar';
-import Footer from '@/components/ui/Footer';
+
 
 export default function DownloadClient() {
   const [loading, setLoading] = useState(false);
@@ -463,7 +463,7 @@ export default function DownloadPage() {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   );
 }
