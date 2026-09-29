@@ -39,7 +39,7 @@ export const metadata = {
     url: 'http://vibeshortapk.com/',
     siteName: 'VibeShort',
     title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
-  description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
+    description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
     images: [
       {
         url: '/vibeshort-apk.webp', 
@@ -58,11 +58,60 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // JSON-LD Structured Data Schema for Organization, WebSite, and SoftwareApplication
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "http://vibeshortapk.com/#website",
+        "url": "http://vibeshortapk.com/",
+        "name": "VibeShort",
+        "publisher": {
+          "@id": "http://vibeshortapk.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "http://vibeshortapk.com/#organization",
+        "name": "VibeShort",
+        "url": "http://vibeshortapk.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "http://vibeshortapk.com/vibeshort-apk.webp"
+        },
+        "sameAs": [
+          "https://github.com/",
+          "https://twitter.com/"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "VibeShort MOD APK",
+        "operatingSystem": "ANDROID",
+        "applicationCategory": "EntertainmentApplication",
+        "softwareVersion": "2.28.1",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  };
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Schema Markup to fix SEO tool warnings */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

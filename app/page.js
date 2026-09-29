@@ -34,16 +34,68 @@ export const metadata = {
     canonical: '/vibeshort-apk',
   },
 };
+
 export default function Home() {
+  // Content Schema for FAQs and HowTo (Download Guide) to fix SEO warnings
+  const contentSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is VibeShort MOD APK safe to download?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, VibeShort MOD APK is thoroughly tested and safe to install on Android devices."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does VibeShort Premium Unlocked offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It unlocks all premium short dramas, mini-series, and removes episode locks without any payment."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Download and Install VibeShort MOD APK",
+        "description": "Step-by-step guide to safely download and install the latest VibeShort MOD APK on your Android phone.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Download APK file",
+            "text": "Click on the download button on the page to get the latest VibeShort APK file."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Enable Unknown Sources",
+            "text": "Go to your Android settings and allow installation from unknown sources."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Install and Enjoy",
+            "text": "Open the downloaded file, tap install, and enjoy premium unlocked dramas."
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[#080A14] text-white">
+      {/* Injecting Content Schema (FAQ & HowTo) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contentSchema) }}
+      />
       
       <Navbar />
-
-      
       <HeroSection />
-
-  
       <AppDetails />
       <AppScreenshots />
       <WhatIsVibeShort />
@@ -69,10 +121,7 @@ export default function Home() {
       <Faqs />
       <FinalThoughts />
       <BackToHome />
-      <Footer/>
-
-      
-      
+      <Footer />
     </main>
   );
 }
