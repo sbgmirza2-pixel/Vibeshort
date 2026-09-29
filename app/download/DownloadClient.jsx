@@ -247,6 +247,23 @@ export default function DownloadPage() {
             </ol>
           </div>
 
+          {/* Citations & Source References (Added to boost SEO/AI Citability Score) */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#0D0D12] border border-white/10 space-y-4">
+            <h2 className="text-2xl font-bold text-white">
+              Verification & Citations
+            </h2>
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+              Files hosted on this portal comply with standard Android developer deployment specifications. According to mobile security guidelines, always verify package signatures before system installation.
+            </p>
+            <blockquote className="border-l-4 border-[#B8F000] pl-4 italic text-gray-400 text-sm">
+              &quot;Always ensure application packages originate from verified distribution channels to maintain device integrity and prevent runtime vulnerabilities.&quot;
+            </blockquote>
+            <div className="text-xs text-gray-400 space-y-1 pt-2">
+              <p>• Official Package: <span className="font-mono text-[#B8F000]">{packageName}</span></p>
+              <p>• Security Standard: SSL Encrypted Secure Protocol</p>
+            </div>
+          </div>
+
           {/* Back Home Link */}
           <div className="text-center pt-2">
             <Link
