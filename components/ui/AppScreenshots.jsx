@@ -29,15 +29,16 @@ export default function AppScreenshots() {
           {screenshots.map((item) => (
             <div
               key={item.id}
-          
-              className="relative w-[280px] sm:w-[300px] h-[510px] sm:h-[600px] rounded-3xl overflow-hidden border-2 border-white/10 bg-black shadow-xl shadow-black/50 shrink-0 group transition-transform duration-300 hover:scale-[1.02]"
+              // Desktop par height kam kar di hai (e.g. lg:h-[480px])
+              className="relative w-[280px] sm:w-[300px] h-[510px] sm:h-[600px] lg:h-[480px] rounded-3xl overflow-hidden border-2 border-white/10 bg-black shadow-xl shadow-black/50 shrink-0 group transition-transform duration-300 hover:scale-[1.02]"
             >
               <Image
                 src={item.src}
                 alt={item.alt}
                 fill
                 sizes="(max-width: 768px) 280px, 300px"
-                className="object-cover group-hover:opacity-95 transition"
+                // 'object-top' lagane se image upar se adjust hogi aur neeche se cut nahi hogi
+                className="object-cover object-top group-hover:opacity-95 transition"
               />
             </div>
           ))}
