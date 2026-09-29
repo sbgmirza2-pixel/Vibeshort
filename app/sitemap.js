@@ -1,8 +1,7 @@
 import { blogsData } from '@/data/blogs';
 
 export default async function sitemap() {
-  const baseUrl = 'https://vibeshort.com'; // Apna domain yahan update kar lein
-
+  const baseUrl = 'http://vibeshortapk.com/'; 
   // Static pages
   const staticPages = [
     '',

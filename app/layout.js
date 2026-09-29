@@ -12,13 +12,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://vibeshort.com'), // Apna actual domain yahan update kar lein
+  metadataBase: new URL('http://vibeshortapk.com/'), 
   title: {
     default: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
     template: '%s | VibeShort',
   },
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
-  keywords: ['VibeShort', 'VibeShort APK', 'AI Dramas', 'Short Reels', 'VibeShort Coins', 'Android Streaming App'],
+  
   authors: [{ name: 'VibeShort Team' }],
   creator: 'VibeShort',
   publisher: 'VibeShort',
@@ -36,7 +36,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://vibeshort.com',
+    url: 'http://vibeshortapk.com/',
     siteName: 'VibeShort',
     title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',

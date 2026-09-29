@@ -1,5 +1,5 @@
 export default function robots() {
-  const baseUrl = 'https://vibeshort.com'; // Apna domain yahan update kar lein
+  const baseUrl = 'http://vibeshortapk.com/'; 
 
   return {
     rules: {
