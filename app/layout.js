@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,7 +19,7 @@ export const metadata = {
     template: '%s | VibeShort',
   },
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
-  authors: [{ name: 'VibeShort Team' }],
+  authors: [{ name: 'VibeShort Team', url: 'http://vibeshortapk.com/about' }],
   creator: 'VibeShort',
   publisher: 'VibeShort',
   robots: {
@@ -57,7 +58,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // JSON-LD Structured Data Schema for Organization, WebSite, and SoftwareApplication
+  // Current date for machine-readable freshness signals
+  const currentDate = new Date().toISOString();
+
+  // JSON-LD Structured Data Schema updated with Person Author & Dates
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -88,14 +92,29 @@ export default function RootLayout({ children }) {
         ]
       },
       {
+        "@type": "Person",
+        "@id": "http://vibeshortapk.com/#author",
+        "name": "VibeShort Team",
+        "url": "http://vibeshortapk.com/about",
+        "sameAs": [
+          "https://twitter.com/"
+        ]
+      },
+      {
         "@type": "SoftwareApplication",
         "@id": "http://vibeshortapk.com/#software",
         "name": "VibeShort MOD APK",
         "operatingSystem": "ANDROID",
         "applicationCategory": "EntertainmentApplication",
         "softwareVersion": "2.28.1",
+        "datePublished": "2026-01-01T00:00:00Z",
+        "dateModified": currentDate,
+        "author": {
+          "@id": "http://vibeshortapk.com/#author"
+        },
         "offers": {
           "@type": "Offer",
+          "@id": "http://vibeshortapk.com/#offer",
           "price": "0",
           "priceCurrency": "USD"
         }
@@ -109,6 +128,20 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/* Google Analytics - Apna G-XXXXXXXXXX yahan update kar lein */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script>
+
         {/* Schema Markup */}
         <script
           type="application/ld+json"
