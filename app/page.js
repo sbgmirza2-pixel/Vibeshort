@@ -2,7 +2,7 @@ import Navbar from '../components/ui/Navbar';
 import HeroSection from '../components/ui/Herosection';
 import AppDetails from '../components/ui/AppDetails';
 import Features from '../components/ui/Features';
-import Premium from '../components/ui/Premium'
+import Premium from '../components/ui/Premium';
 import IsSafe from '../components/ui/IsSafe';
 import WhatIsVibeShort from '../components/ui/WhatIsVibeShort';
 import HowItWorks from '../components/ui/HowItsWorks';
@@ -14,7 +14,7 @@ import Platforms from '../components/ui/Platforms';
 import OfflineViewing from '../components/ui/OfflineViewing';
 import Permissions from '../components/ui/Permissions';
 import Privacy from '../components/ui/Privacy';
-import CompareVersion from '../components/ui/CompareVersion'
+import CompareVersion from '../components/ui/CompareVersion';
 import DownloadGuide from '../components/ui/DownloadGuide';
 import InstallGuide from '../components/ui/InstallGuide';
 import UpdateHistory from '../components/ui/UpdateHistory';
@@ -25,21 +25,62 @@ import Faqs from '../components/ui/Faqs';
 import FinalThoughts from '../components/ui/FinalThoughts';
 import Footer from '../components/ui/Footer';
 import AppScreenshots from '../components/ui/AppScreenshots';
-import BackToHome from '../components/ui/BackToHome'
+import BackToHome from '../components/ui/BackToHome';
+
+const PAGE_URL = 'https://vibeshortapk.com/vibeshort-apk';
+const SITE_URL = 'https://vibeshortapk.com';
 
 export const metadata = {
   title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
   alternates: {
-    canonical: '/vibeshort-apk',
+    canonical: PAGE_URL, // 👈 Yahan /vibeshort-apk ki jagah PAGE_URL variable pass kar dein
+  },
+  openGraph: {
+    // ... baaki sab wahi rahega
+    url: PAGE_URL,
+    siteName: 'VibeShort',
+    images: [
+      {
+        url: `${SITE_URL}/vibeshort-apk.webp`,
+        width: 800,
+        height: 800,
+        alt: 'VibeShort MOD APK Download',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
+    description: 'VibeShort MOD APK brings short dramas and mini-series to Android.',
+    images: [`${SITE_URL}/vibeshort-apk.webp`],
   },
 };
 
 export default function Home() {
-  // Content Schema for FAQs and HowTo (Download Guide) to fix SEO warnings
+  // Enhanced Content Schema (FAQ, HowTo, and BreadcrumbList added)
   const contentSchema = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": SITE_URL
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "VibeShort APK",
+            "item": PAGE_URL
+          }
+        ]
+      },
       {
         "@type": "FAQPage",
         "mainEntity": [
@@ -88,7 +129,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#080A14] text-white">
-      {/* Injecting Content Schema (FAQ & HowTo) */}
+      {/* Injecting Content Schema (Breadcrumb, FAQ & HowTo) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contentSchema) }}
@@ -125,3 +166,25 @@ export default function Home() {
     </main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
