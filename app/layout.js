@@ -12,16 +12,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = 'https://vibeshortapk.com';
+
 export const metadata = {
-  metadataBase: new URL('http://vibeshortapk.com/'), 
+  metadataBase: new URL(SITE_URL), 
   title: {
     default: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
     template: '%s | VibeShort',
   },
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
-  authors: [{ name: 'VibeShort Team', url: 'http://vibeshortapk.com/about' }],
+  authors: [{ name: 'VibeShort Team', url: `${SITE_URL}/about` }],
   creator: 'VibeShort',
   publisher: 'VibeShort',
+  alternates: {
+    canonical: '/',
+  },
   robots: {
     index: true,
     follow: true,
@@ -36,7 +41,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'http://vibeshortapk.com/',
+    url: SITE_URL,
     siteName: 'VibeShort',
     title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
     description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
@@ -58,32 +63,30 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // Current date for machine-readable freshness signals
   const currentDate = new Date().toISOString();
 
-  // JSON-LD Structured Data Schema updated with Person Author & Dates
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "http://vibeshortapk.com/#website",
-        "url": "http://vibeshortapk.com/",
+        "@id": `${SITE_URL}/#website`,
+        "url": `${SITE_URL}/`,
         "name": "VibeShort",
         "publisher": {
-          "@id": "http://vibeshortapk.com/#organization"
+          "@id": `${SITE_URL}/#organization`
         }
       },
       {
         "@type": "Organization",
-        "@id": "http://vibeshortapk.com/#organization",
+        "@id": `${SITE_URL}/#organization`,
         "name": "VibeShort",
-        "url": "http://vibeshortapk.com/",
+        "url": `${SITE_URL}/`,
         "logo": {
           "@type": "ImageObject",
-          "@id": "http://vibeshortapk.com/#logo",
-          "url": "http://vibeshortapk.com/vibeshort-apk.webp",
-          "contentUrl": "http://vibeshortapk.com/vibeshort-apk.webp",
+          "@id": `${SITE_URL}/#logo`,
+          "url": `${SITE_URL}/vibeshort-apk.webp`,
+          "contentUrl": `${SITE_URL}/vibeshort-apk.webp`,
           "caption": "VibeShort Logo"
         },
         "sameAs": [
@@ -93,16 +96,16 @@ export default function RootLayout({ children }) {
       },
       {
         "@type": "Person",
-        "@id": "http://vibeshortapk.com/#author",
+        "@id": `${SITE_URL}/#author`,
         "name": "VibeShort Team",
-        "url": "http://vibeshortapk.com/about",
+        "url": `${SITE_URL}/about`,
         "sameAs": [
           "https://twitter.com/"
         ]
       },
       {
         "@type": "SoftwareApplication",
-        "@id": "http://vibeshortapk.com/#software",
+        "@id": `${SITE_URL}/#software`,
         "name": "VibeShort MOD APK",
         "operatingSystem": "ANDROID",
         "applicationCategory": "EntertainmentApplication",
@@ -110,11 +113,11 @@ export default function RootLayout({ children }) {
         "datePublished": "2026-01-01T00:00:00Z",
         "dateModified": currentDate,
         "author": {
-          "@id": "http://vibeshortapk.com/#author"
+          "@id": `${SITE_URL}/#author`
         },
         "offers": {
           "@type": "Offer",
-          "@id": "http://vibeshortapk.com/#offer",
+          "@id": `${SITE_URL}/#offer`,
           "price": "0",
           "priceCurrency": "USD"
         }
@@ -128,9 +131,9 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        {/* Google Analytics - Apna G-XXXXXXXXXX yahan update kar lein */}
+        {/* Google Analytics Tag */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZPSXR6RZNC"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -138,7 +141,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-ZPSXR6RZNC');
           `}
         </Script>
 
@@ -149,7 +152,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-full flex flex-col">
-        {/* Hidden Semantic Citation Tag for AI Visibility & Citability Audits */}
         <div className="sr-only" aria-hidden="true">
           <cite>VibeShort Official Android Documentation</cite>
           <blockquote>
