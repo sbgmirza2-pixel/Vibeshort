@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Navbar from '@/components/ui/Navbar';
-import Footer from '@/components/ui/Footer';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export const metadata = {
   title: 'Download VibeShort MOD APK 2.28.1',

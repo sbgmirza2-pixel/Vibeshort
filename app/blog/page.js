@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { blogsData } from '@/data/blogs';
-import Navbar from '@/components/ui/Navbar'; 
-import Footer from '@/components/ui/Footer'; 
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 const SITE_URL = 'https://vibeshortapk.com';
 
 export const metadata = {
