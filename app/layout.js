@@ -21,7 +21,7 @@ export const metadata = {
     template: '%s | VibeShort',
   },
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
-  authors: [{ name: 'VibeShort Team', url: `${SITE_URL}/about` }],
+  authors: [{ name: 'VibeShort Team', url: `${SITE_URL}/about-us` }],
   creator: 'VibeShort',
   publisher: 'VibeShort',
   alternates: {
@@ -98,7 +98,7 @@ export default function RootLayout({ children }) {
         "@type": "Person",
         "@id": `${SITE_URL}/#author`,
         "name": "VibeShort Team",
-        "url": `${SITE_URL}/about`,
+        "url": `${SITE_URL}/about-us`,
         "sameAs": [
           "https://twitter.com/"
         ]

@@ -6,9 +6,13 @@ export default async function sitemap() {
   const staticPages = [
     '',
     '/blog',
-    '/#about',
-    '/#screenshots',
-    '/#cancel-subscription',
+    '/about-us',
+    '/contact-us',
+    '/disclaimer',
+    '/terms-and-conditions',
+    '/faqs',
+    '/download',
+  '/privacy-policy',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

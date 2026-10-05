@@ -27,18 +27,18 @@ import Footer from '../components/ui/Footer';
 import AppScreenshots from '../components/ui/AppScreenshots';
 import BackToHome from '../components/ui/BackToHome';
 
-const PAGE_URL = 'https://vibeshortapk.com/vibeshort-apk';
 const SITE_URL = 'https://vibeshortapk.com';
 
 export const metadata = {
   title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
   alternates: {
-    canonical: PAGE_URL, // 👈 Yahan /vibeshort-apk ki jagah PAGE_URL variable pass kar dein
+    canonical: SITE_URL,
   },
   openGraph: {
-    // ... baaki sab wahi rahega
-    url: PAGE_URL,
+    title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
+    description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
+    url: SITE_URL,
     siteName: 'VibeShort',
     images: [
       {
@@ -72,12 +72,6 @@ export default function Home() {
             "position": 1,
             "name": "Home",
             "item": SITE_URL
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "VibeShort APK",
-            "item": PAGE_URL
           }
         ]
       },
@@ -166,25 +160,3 @@ export default function Home() {
     </main>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
