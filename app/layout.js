@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -131,20 +131,6 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        {/* Google Analytics Tag */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZPSXR6RZNC"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZPSXR6RZNC');
-          `}
-        </Script>
-
         {/* Schema Markup */}
         <script
           type="application/ld+json"
@@ -160,6 +146,9 @@ export default function RootLayout({ children }) {
         </div>
         
         {children}
+
+        {/* Optimized Google Analytics */}
+        <GoogleAnalytics gaId="G-ZPSXR6RZNC" />
       </body>
     </html>
   );
