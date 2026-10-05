@@ -2,10 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
+const SITE_URL = 'https://vibeshortapk.com';
 
 export const metadata = {
   title: 'About Us',
   description: 'Learn more about our website, the app information we provide, and how we help Android users find useful guides and download details.',
+ alternates: {
+    canonical: `${SITE_URL}/about-us`,
+  },
 };
 
 export default function AboutUsPage() {

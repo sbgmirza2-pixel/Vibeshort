@@ -5,6 +5,9 @@ import Footer from '@/components/ui/Footer';
 export const metadata = {
   title: 'Contact Us',
   description: 'Have a question, suggestion, or concern? Get in touch with us about our content, app information, corrections, or other website-related matters.',
+ alternates: {
+    canonical: `${SITE_URL}/contact-us`,
+  },
 };
 
 export default function ContactUsPage() {

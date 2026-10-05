@@ -2,6 +2,15 @@ import Link from 'next/link';
 import { blogsData } from '@/data/blogs';
 import Navbar from '@/components/ui/Navbar'; 
 import Footer from '@/components/ui/Footer'; 
+const SITE_URL = 'https://vibeshortapk.com';
+
+export const metadata = {
+  title: 'Guides & Blog - Master All Anomalies',
+  description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
+ alternates: {
+    canonical: `${SITE_URL}/blogs`,
+  },
+};
 
 export default function BlogListingPage() {
   return (

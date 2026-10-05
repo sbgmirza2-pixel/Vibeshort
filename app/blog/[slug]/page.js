@@ -4,6 +4,25 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 
+const SITE_URL = 'https://vibeshortapk.com';
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const blog = blogsData.find((b) => b.slug === slug);
+
+  if (!blog) {
+    return { title: "Blog Not Found - VibeShort" };
+  }
+
+  return {
+    title: `${blog.title} | VibeShort`,
+    description: blog.metaDescription || blog.title,
+    alternates: {
+      canonical: `${SITE_URL}/blog/${slug}`,
+    },
+  };
+}
+
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
   const blog = blogsData.find((b) => b.slug === slug);
@@ -44,10 +63,10 @@ export default async function BlogPostPage({ params }) {
           </div>
 
           {/* Article Content with HTML links */}
-         <div 
-  className="text-gray-300 space-y-6 leading-relaxed text-base sm:text-lg [&_h3]:text-xl [&_h3]:sm:text-2xl [&_h3]:font-bold [&_h3]:text-white [&_h3]:mt-8 [&_h3]:mb-4"
-  dangerouslySetInnerHTML={{ __html: blog.content }}
-/>
+          <div 
+            className="text-gray-300 space-y-6 leading-relaxed text-base sm:text-lg [&_h3]:text-xl [&_h3]:sm:text-2xl [&_h3]:font-bold [&_h3]:text-white [&_h3]:mt-8 [&_h3]:mb-4"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
 
           {/* Footer Navigation */}
           <div className="pt-8 border-t border-white/10 flex justify-between items-center">

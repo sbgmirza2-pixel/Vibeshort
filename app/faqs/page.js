@@ -2,6 +2,15 @@ import React from 'react';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer'; 
 
+const SITE_URL = 'https://vibeshortapk.com';
+
+export const metadata = {
+  title: 'All Frequently Asked Questions -  Guide',
+  description: 'Explore our comprehensive list of answers regarding the vibeshort, installation, features, and compatibility.',
+ alternates: {
+    canonical: `${SITE_URL}/faqs`,
+  },
+};
 export default function FaqsPage() {
   const allFaqs = [
     {

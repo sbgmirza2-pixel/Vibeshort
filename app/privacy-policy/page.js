@@ -2,10 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
+const SITE_URL = 'https://vibeshortapk.com';
 
 export const metadata = {
   title: 'Privacy Policy',
   description: 'Read our Privacy Policy to understand how visitor information, cookies, analytics, advertising services, and third-party links may be handled.',
+ alternates: {
+    canonical: `${SITE_URL}/privacy-policy`,
+  },
 };
 
 export default function PrivacyPolicyPage() {
