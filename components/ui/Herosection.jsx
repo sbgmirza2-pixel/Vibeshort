@@ -11,7 +11,7 @@ export default function HeroSection() {
   const shareUrl = encodeURIComponent(currentUrl);
 
   return (
-    <section id="home" className="relative overflow-hidden py-12 px-6 lg:py-20 bg-[#0D0D12]">
+    <section  className="relative overflow-hidden py-12 px-6 lg:py-20 bg-[#0D0D12]">
       <div className="max-w-4xl mx-auto space-y-6 text-center flex flex-col items-center">
 
         {/* Main Title */}

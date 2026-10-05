@@ -93,12 +93,12 @@ export default function DownloadPage() {
           
           {/* H1 Heading */}
           <div className="text-center space-y-4">
-            <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
               Download <span className="text-[#B8F000]">{appName}</span>
-            </h1>
+            </h2>
             <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Download{' '}
-              <Link href="/#home" className="text-[#B8F000] hover:underline transition-colors">
+              <Link href="/" className="text-[#B8F000] hover:underline transition-colors">
                 VibeShort
               </Link>{' '}
               MOD APK safely with the latest file details, Android requirements, version info, and verified download links.
