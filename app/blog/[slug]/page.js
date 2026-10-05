@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { blogsData } from '@/data/blogs';
 import { notFound } from 'next/navigation';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const SITE_URL = 'https://vibeshortapk.com';
 
