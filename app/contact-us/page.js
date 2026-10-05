@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
-
+const SITE_URL = 'https://vibeshortapk.com';
 export const metadata = {
   title: 'Contact Us',
   description: 'Have a question, suggestion, or concern? Get in touch with us about our content, app information, corrections, or other website-related matters.',
