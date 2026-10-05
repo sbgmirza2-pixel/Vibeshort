@@ -30,7 +30,7 @@ export default function Navbar() {
 
         {/* Center: Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/#home" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
+          <Link href="/" className="text-base font-medium text-gray-200 hover:text-[#B8F000] transition">
             Home
           </Link>
         
@@ -75,7 +75,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="max-w-7xl mx-auto mt-2 md:hidden bg-[#0D0D12] border border-white/15 rounded-2xl px-6 py-4 space-y-3 shadow-2xl">
           <Link
-            href="/#home"
+            href="/"
             onClick={() => setIsOpen(false)}
             className="block text-base font-medium text-gray-200 hover:text-[#B8F000]"
           >
