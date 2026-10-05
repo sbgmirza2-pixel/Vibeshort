@@ -8,7 +8,7 @@ export const metadata = {
   title: 'Guides & Blog - Master All Anomalies',
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
  alternates: {
-    canonical: `${SITE_URL}/blogs`,
+    canonical: `${SITE_URL}/blog`,
   },
 };
 
