@@ -2,7 +2,7 @@ export const blogsData = [
   {
     slug: 'vibeshort-game-stories',
     title: 'Best Game Stories to Watch on VibeShort',
-    description: 'VibeShort has some fun game-style stories with systems, powers, fantasy worlds, and strong characters. Here are the ones worth watching.',
+    description: 'VibeShort has some fun game-style stories with systems, powers, fantasy world, and strong characters. Here are the ones worth watching.',
     date: 'August 28, 2026',
     readTime: '8 min read',
     content: `VibeShort has more than romance, revenge, and billionaire stories. Some of its dramas borrow ideas from games, RPGs, fantasy novels, and system-based stories. These shows give the main character a special system, new abilities, rewards, classes, or another way to grow stronger.

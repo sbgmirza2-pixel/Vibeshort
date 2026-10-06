@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${blog.title} | VibeShort`,
-    description: blog.metaDescription || blog.title,
+    description: blog.description || blog.title,
     alternates: {
       canonical: `${SITE_URL}/blog/${slug}`,
     },
