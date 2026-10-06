@@ -18,7 +18,7 @@ export const metadata = {
   metadataBase: new URL(SITE_URL), 
   title: {
     default: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
-    template: '%s | VibeShort',
+   
   },
   description: 'VibeShort MOD APK brings short dramas and mini-series to Android. See the latest version, key features, safety details, and APK download info.',
   authors: [{ name: 'VibeShort Team', url: `${SITE_URL}/about-us` }],
