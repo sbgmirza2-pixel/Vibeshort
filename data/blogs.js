@@ -117,7 +117,7 @@ For complete details on exploring titles, check out our guide on Completed VibeS
   {
     slug: 'vibeshort-coins',
     title: 'VibeShort Coins: How They Work and How to Get More',
-    description: 'VibeShort coins help you unlock more episodes and enjoy your favorite dramas. See how coins work, free earning options, episode costs, and subscription details.',
+    description: 'VibeShort coins help you unlock more episodes and enjoy your favorite dramas. See how coins work, free earning options, episodes costs, and subscription details.',
     date: 'August 28, 2026',
     readTime: '8 min read',
     content: `VibeShort is free to download, but watching every episode does not always mean watching everything for free. Coins are part of the app's viewing system, and they can become important once you reach locked episodes.
