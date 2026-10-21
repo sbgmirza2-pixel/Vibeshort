@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-const SITE_URL = 'https://vibeshortapk.com';
+const SITE_URL = 'https:/vibeshortapk.com';
 export const metadata = {
   title: 'Disclaimer',
   description: 'Read our Disclaimer to understand the limits of our app information, APK guides, third-party links, downloads, and other website content.',

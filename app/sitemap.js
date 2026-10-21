@@ -1,7 +1,7 @@
 import { blogsData } from '@/data/blogs';
 
 export default async function sitemap() {
-  const baseUrl = 'http://vibeshortapk.com/'; 
+  const baseUrl = 'http:/vibeshortapk.com'; 
   // Static pages
   const staticPages = [
     '',

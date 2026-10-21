@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = 'https://vibeshortapk.com';
+const SITE_URL = 'https:/vibeshortapk.com';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL), 
