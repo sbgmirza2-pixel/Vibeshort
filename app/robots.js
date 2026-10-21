@@ -1,5 +1,5 @@
 export default function robots() {
-  const baseUrl = 'http://vibeshortapk.com'; 
+  const baseUrl = 'https://vibeshortapk.com'; 
 
   return {
     rules: {
