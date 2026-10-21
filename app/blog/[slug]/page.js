@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
-const SITE_URL = 'https:/vibeshortapk.com';
+const SITE_URL = 'https://vibeshortapk.com';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

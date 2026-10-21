@@ -27,7 +27,7 @@ import Footer from './components/Footer';
 import AppScreenshots from './components/AppScreenshots';
 import BackToHome from './components/BackToHome';
 
-const SITE_URL = 'https:/vibeshortapk.com';
+const SITE_URL = 'https://vibeshortapk.com';
 
 export const metadata = {
   title: 'VibeShort MOD APK 2.28.1 (Premium Unlocked) Free Download',
